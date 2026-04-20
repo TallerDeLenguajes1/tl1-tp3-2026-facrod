@@ -2,6 +2,19 @@
 #include <stdlib.h>
 #include <string.h>
 
+void buscar_nombre(int id, char *array[]) {
+    for (int i = 0; i < 5; i++)
+    {
+        if (i == id)
+        {
+            printf("el nombre cuya id es %d es: %s\n", id, array[i]);
+            return;
+        }
+    }
+    printf("no se encontro el valor buscado");
+}
+
+
 void MostrarPersonas (char *array[]) {
     for (int j = 0; j < 5; j++)
     {
@@ -22,6 +35,12 @@ int main () {
                 
     }
     MostrarPersonas(array);
+
+    int id;
+    printf("ingrese la id para buscar el nombre: \n");
+    scanf("%d", &id);
+   
+    buscar_nombre(id,array);
 
     for (int k = 0; k < 5; k++) 
     {
