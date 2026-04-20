@@ -2,6 +2,16 @@
 #include <stdlib.h>
 #include <string.h>
 
+char *buscar_nombre(char *array[], char *palabraClave) {
+    for (int i = 0; i < 5; i++) {
+        if (strstr(array[i], palabraClave) != NULL) {
+            return array[i]; 
+        }
+    }
+    return NULL;  // no encontró nada
+}
+
+
 void MostrarPersonas (char *array[]) {
     for (int j = 0; j < 5; j++)
     {
@@ -23,6 +33,18 @@ int main () {
     }
     MostrarPersonas(array);
 
+    char palabraClave[50];
+    printf("ingrese una palabra clave: \n");
+    scanf(" %s", palabraClave);
+    char *resultado = buscar_nombre(array, palabraClave);
+    
+    if (resultado != NULL) {
+        printf("encontrado: %s\n", resultado);
+    } else {
+        printf("no se encontro el valor buscado");
+    }
+
+    
     for (int k = 0; k < 5; k++) 
     {
         free(array[k]);
