@@ -2,13 +2,14 @@
 #include <stdlib.h>
 #include <string.h>
 
+
 char *buscar_nombre(char *array[], char *palabraClave) {
     for (int i = 0; i < 5; i++) {
         if (strstr(array[i], palabraClave) != NULL) {
             return array[i]; 
         }
     }
-    return NULL;  // no encontró nada
+    return NULL;  
 }
 
 
