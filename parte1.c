@@ -3,7 +3,7 @@
 #include <string.h>
 
 
-char *buscar_nombre(char *array[], char *palabraClave) {
+char *buscar_nombrePorPalabra(char *array[], char *palabraClave) {
     for (int i = 0; i < 5; i++) {
         if (strstr(array[i], palabraClave) != NULL) {
             return array[i]; 
@@ -11,7 +11,17 @@ char *buscar_nombre(char *array[], char *palabraClave) {
     }
     return NULL;  
 }
-
+void buscar_nombrePorId(int id, char *array[]) {
+    for (int i = 0; i < 5; i++)
+    {
+        if (i == id)
+        {
+            printf("el nombre cuya id es %d es: %s\n", id, array[i]);
+            return;
+        }
+    }
+    printf("no se encontro el valor buscado");
+}
 
 void MostrarPersonas (char *array[]) {
     for (int j = 0; j < 5; j++)
@@ -34,10 +44,17 @@ int main () {
     }
     MostrarPersonas(array);
 
+    int id;
+    printf("ingrese la id para buscar el nombre: \n");
+    scanf("%d", &id);
+   
+    buscar_nombrePorId(id,array);
+
+
     char palabraClave[50];
     printf("ingrese una palabra clave: \n");
     scanf(" %s", palabraClave);
-    char *resultado = buscar_nombre(array, palabraClave);
+    char *resultado = buscar_nombrePorPalabra(array, palabraClave);
     
     if (resultado != NULL) {
         printf("encontrado: %s\n", resultado);
